@@ -1,0 +1,220 @@
+<?php
+
+require_once('functions/theme.php');
+require_once('functions/script.php');
+require_once('functions/menu.php');
+require_once('functions/widget.php');
+require_once('functions/taxonomies.php');
+require_once('functions/post-types.php');
+require_once('functions/calendar.php');
+require_once('templates/instagram.php');
+
+add_action( 'wp_login_failed', 'my_front_end_login_fail' );  // hook failed login
+
+function my_front_end_login_fail( $username ) {
+   $referrer = $_SERVER['HTTP_REFERER'];  // where did the post submission come from?
+   // if there's a valid referrer, and it's not the default log-in screen
+   if ( !empty($referrer) && !strstr($referrer,'wp-login') && !strstr($referrer,'wp-admin') ) {
+      wp_redirect( $referrer . '?login=failed' );  // let's append some information (login=failed) to the URL for the theme to use
+      exit;
+   }
+}
+
+function ftimg() {
+       $ftimg = catch_first_image();
+       $title = get_the_title();
+     $sub_title = get_field('secondary_title');
+     $sub_heading = get_field('secondary_heading');
+     // var_dump($ftimg);
+     if ( $ftimg === false ){
+        echo '<div class="ftimg default">';
+    if( get_field('secondary_title') ) {
+        echo '<h2>'. $sub_title .'</h2>';
+    } else {
+      echo '<h2>'. $title .'</h2>';
+     }
+          echo '<h4>'. $sub_heading .'</h4>';
+          echo '<div class="theimg"></div>';
+        echo '</div>';
+    } else {
+        echo '<div class="ftimg">';
+              if( get_field('secondary_title') ) {
+            echo '<h2>'. $sub_title .'</h2>';
+          } else {
+          echo '<h2>'. $title .'</h2>';
+        }
+          echo '<h4>'. $sub_heading .'</h4>';
+          echo '<div class="overlay"></div>';
+          echo '<div class="theimg" style="background:#f37f30 url('. catch_first_image() .') no-repeat;"></div>';
+        echo '</div>';
+
+    }
+    // echo'<div class="contentwrap bc">';
+    //   echo  '<div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">';
+    //     if(function_exists('bcn_display')) { bcn_display(); } 
+    //   echo'</div>';
+    // echo'</div>';
+}
+
+ // show_admin_bar(false);
+
+// [button shortcode][bartag foo="foo-value"]
+function button_func( $atts ) {
+    $a = shortcode_atts( array(
+        'link' => '#',
+        'color' => '',
+        'text' => 'Button'
+    ), $atts );
+
+    return '<a class="btn '. $a['color'].'" href="'. $a['link'].'">'. $a['text'].'</a>';
+}
+add_shortcode( 'button', 'button_func' );
+
+// [ebook shortcode][bartag foo="foo-value"]
+function ebook_func( $atts ) {
+    $a = shortcode_atts( array(
+        'ebook-image' => '#',
+        'hubspot-link' => '#',
+        'button-text' => 'Button',
+        'content' => 'content'
+    ), $atts );
+
+    return '<div class="ebook-cta"><img src="'. $a['ebook-image'] .'">
+      <div class="text-contain">'.$a['content'].'</div>
+      <a class="btn white" href="'. $a['hubspot-link'].'">'. $a['button-text'].'</a>
+    </div>';
+}
+add_shortcode( 'ebook', 'ebook_func' );
+
+function quote_func( $atts ) {
+    $a = shortcode_atts( array(
+        'img' => '#',
+        'text' => 'Button'
+    ), $atts );
+
+    return '<span class="quote" style="background:#f37f30 url('. $a['img'].')">" '. $a['text'].' "</span>';
+}
+add_shortcode( 'quote', 'quote_func' );
+
+function wpdocs_excerpt_more( $more ) {
+    return '...';
+}
+add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
+/*get first image of post--------*/
+function catch_first_image(){
+global $post, $posts;
+  $first_img = '';
+  ob_start();
+  ob_end_clean();
+  
+  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+  $first_img = $matches [1] [0];
+  if (is_single() || is_archive() ) {
+      if(empty($first_img)){ //If no image is found
+        $first_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); //path to default image
+      }
+  } else {
+      $first_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); //path to default image
+  }
+
+return $first_img;
+}
+
+function pagination_nav() {
+    global $wp_query;
+ 
+    if ( $wp_query->max_num_pages > 1 ) { ?>
+        <nav class="pagination" role="navigation">
+            <div class="nav-previous"><?php next_posts_link( '&larr; Older posts' ); ?></div>
+            <div class="nav-next"><?php previous_posts_link( 'Newer posts &rarr;' ); ?></div>
+        </nav>
+<?php } 
+}
+
+
+//hubspot link 
+add_action( 'gform_after_submission_4', 'post_to_third_party', 10, 2 );
+function post_to_third_party( $entry, $form ) {
+  
+
+// $hubspotutk      = $_COOKIE['hubspotutk']; //grab the cookie from the visitors browser.
+// $ip_addr         = $_SERVER['REMOTE_ADDR']; //IP address too.
+
+// $uri = $_SERVER['HTTP_REFERER'];
+// $hs_context      = array(
+//     'hutk' => $hubspotutk,
+//     'ipAddress' => $ip_addr,
+//     'pageUrl' => $uri,
+//     'redirectUrl'=> 'https://thinkbigshot.com/thank-you-for-taking-our-quiz',
+//     'pageName' => 'BSI Quiz'
+// );
+// $hs_context_json = json_encode($hs_context);
+
+
+ // $post_url = 'http://thirdparty.com';
+    $body = array(
+        'first_name' => rgar( $entry, '9.3' ), 
+        'last_name' => rgar( $entry, '9.6' ), 
+        'email' => rgar( $entry, '10' ), 
+        'phone' => rgar( $entry, '11' ), 
+        'company' => rgar( $entry, '12' ), 
+        'points' => rgar( $entry, '22' ),
+        );
+    GFCommon::log_debug( 'gform_after_submission: body => ' . print_r( $body, true ) );
+    
+
+    $request = new WP_Http();
+    $response = $request->post( $post_url, array( 'body' => $body ) );
+    GFCommon::log_debug( 'gform_after_submission: response => ' . print_r( $response, true ) );
+
+
+
+$total = $body['points'];;
+
+// echo $total;
+
+if ( $total <= '9') {
+  
+    $msg = 'first';
+
+} else if ( $total <= '14') {
+
+    $msg ='second';
+
+} else if ( $total <= '20') { 
+
+    $msg = 'third';
+
+}
+
+// var_dump($msg);
+
+//Need to populate these varilables with values from the form.
+$str_post = "firstname=" . $body['first_name']
+    . "&lastname=" . $body['last_name']
+    . "&email=" . $body['email']
+    . "&company=" . $body['company']
+    . "&message=" . $msg
+    . "&hs_context=" . urlencode($hs_context_json); //Leave this one be
+
+//replace the values in this URL with your portal ID and your form GUID
+
+
+$endpoint = 'https://forms.hubspot.com/uploads/form/v2/237975/aabedd0e-ebc4-4956-90d8-021e9edcc71c';
+$ch = @curl_init();
+@curl_setopt($ch, CURLOPT_POST, true);
+@curl_setopt($ch, CURLOPT_POSTFIELDS, $str_post);
+@curl_setopt($ch, CURLOPT_URL, $endpoint);
+@curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'Content-Type: application/x-www-form-urlencoded'
+));
+$response    = @curl_exec($ch); //Log the response from HubSpot as needed.
+$status_code = @curl_getinfo($ch, CURLINFO_HTTP_CODE); //Log the response status code
+@curl_close($ch);
+// echo $status_code . " " . $response;
+// echo $str_post;
+
+
+
+}
+

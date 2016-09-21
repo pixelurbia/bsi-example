@@ -1,0 +1,125 @@
+ Scanning [/home/annelou] ...
+ [36m[STR][39;49;00mgeneric_php_includer [22/06/15] [1m/home/annelou/public_html/media/foundry/5.0/scripts/ace/mode-php.js[39;49;00m
+ -----------------------------------------
+ Scanned Files:  9935
+ Scanner Hits:   1
+ 
+Scanning [/home/augustin] ...
+ [36m[HEX][39;49;00mreversed_base64_decode [13/03/15] [1m/home/augustin/public_html/libraries/simplepie/controller.php[39;49;00m
+ -----------------------------------------
+ Scanned Files:  12315
+ Scanner Hits:   1
+ Scanning [/home/bsinew] ...
+ [36m[HEX][39;49;00meval_base64_mixed [21/03/16] [1m/home/bsinew/public_html/wp-content/plugins/gravityforms/common.php[39;49;00m
+ -----------------------------------------
+ Scanned Files:  5291
+ Scanner Hits:   1
+ 
+Scanning [/home/calvary1] ...
+ [36m[STR][39;49;00mgeneric_php_includer [23/06/15] [1m/home/calvary1/public_html/media/foundry/5.0/scripts/ace/mode-php.js[39;49;00m
+ -----------------------------------------
+ Scanned Files:  14004
+ Scanner Hits:   1
+ 
+Scanning [/home/calvaryc] ...
+ [36m[STR][39;49;00mgeneric_php_includer [16/06/14] [1m/home/calvaryc/public_html/plugins/editors/rokpad/ace/mode-php.js[39;49;00m
+ -----------------------------------------
+ Scanned Files:  14390
+ Scanner Hits:   1
+ 
+Scanning [/home/hicinsur] ...
+ [36m[HEX][39;49;00mreversed_base64_decode [11/10/13] [1m/home/hicinsur/public_html/libraries/simplepie/controller.php[39;49;00m
+ -----------------------------------------
+ Scanned Files:  21899
+ Scanner Hits:   1
+ 
+Scanning [/home/lethenr1] ...
+ [36m[HEX][39;49;00meval_base64_mixed [19/01/16] [1m/home/lethenr1/public_html/plugins/system/akgeoip/lib/composer.phar[39;49;00m
+ -----------------------------------------
+ Scanned Files:  8477
+ Scanner Hits:   1
+ 
+Scanning [/home/lethenry] ...
+ [36m[HEX][39;49;00mwp_malware_include_2 [16/12/15] [1m/home/lethenry/pub_old/includes/defines.php[39;49;00m
+ [36m[HEX][39;49;00mreversed_base64_decode [14/04/14] [1m/home/lethenry/pub_old/components/defines.php[39;49;00m
+ [36m[STR][39;49;00mgeneric_php_includer [12/02/13] [1m/home/lethenry/pub_old/plugins/editors/rokpad/ace/mode-php.js[39;49;00m
+ [36m[HEX][39;49;00mwp_malware_include_2 [12/02/13] [1m/home/lethenry/pub_old/administrator/includes/defines.php[39;49;00m
+ [36m[HEX][39;49;00mwp_malware_include_2 [16/12/15] [1m/home/lethenry/joombkup/includes/defines.php[39;49;00m
+ [36m[HEX][39;49;00mreversed_base64_decode [16/12/15] [1m/home/lethenry/joombkup/components/defines.php[39;49;00m
+ [36m[STR][39;49;00mgeneric_php_includer [16/12/15] [1m/home/lethenry/joombkup/plugins/editors/rokpad/ace/mode-php.js[39;49;00m
+ [36m[HEX][39;49;00mwp_malware_include_2 [16/12/15] [1m/home/lethenry/joombkup/administrator/includes/defines.php[39;49;00m
+ [36m[HEX][39;49;00mwp_malware_include_2 [16/12/15] [1m/home/lethenry/public_html/includes/defines.php[39;49;00m
+ [36m[HEX][39;49;00mwp_malware_include_2 [16/12/15] [1m/home/lethenry/public_html/administrator/includes/defines.php[39;49;00m
+ -----------------------------------------
+ Scanned Files:  32785
+ Scanner Hits:   10
+ 
+Scanning [/home/malleysu] ...
+ [36m[STR][39;49;00mgeneric_php_includer [11/03/13] [1m/home/malleysu/public_html/plugins/editors/rokpad/ace/mode-php.js[39;49;00m
+ -----------------------------------------
+ Scanned Files:  11515
+ Scanner Hits:   1
+ 
+Scanning [/home/monarch] ...
+ [36m[GEN][39;49;00meval_post_get [05/11/15] [1m/home/monarch/public_html/logs/jhackguard-log.php[39;49;00m
+ -----------------------------------------
+ Scanned Files:  38722
+ Scanner Hits:   1
+ 
+Scanning [/home/mybigli9] ...
+ [36m[STR][39;49;00mgeneric_php_includer [20/09/15] [1m/home/mybigli9/public_html/media/foundry/5.0/scripts/ace/mode-php.js[39;49;00m
+ [36m[STR][39;49;00mgeneric_php_includer [20/09/15] [1m/home/mybigli9/public_html/media/foundry/4.0/scripts/ace/mode-php.js[39;49;00m
+ -----------------------------------------
+ Scanned Files:  40389
+ Scanner Hits:   2
+ 
+Scanning [/home/mybiglif] ...
+ [36m[STR][39;49;00mgeneric_php_includer [26/09/14] [1m/home/mybiglif/public_html/components/com_easyblog/views/dashboard/Find Results[39;49;00m
+ -----------------------------------------
+ Scanned Files:  20736
+ Scanner Hits:   1
+ 
+ Scanning [/home/pendell2] ...
+ [36m[STR][39;49;00mgeneric_php_includer [19/11/15] [1m/home/pendell2/public_html/wp-content/plugins/shortcodes-ultimate/assets/js/ace/mode-php.js[39;49;00m
+ -----------------------------------------
+ Scanned Files:  7549
+ Scanner Hits:   1
+ 
+Scanning [/home/school] ...
+ [36m[STR][39;49;00mgeneric_php_includer [24/06/15] [1m/home/school/public_html/media/foundry/5.0/scripts/ace/mode-php.js[39;49;00m
+ -----------------------------------------
+ Scanned Files:  13105
+ Scanner Hits:   1
+ 
+ Scanning [/home/silverst] ...
+ [36m[HEX][39;49;00mreversed_base64_decode [03/12/13] [1m/home/silverst/public_html/components/com_finder/findme.php[39;49;00m
+ -----------------------------------------
+ Scanned Files:  24779
+ Scanner Hits:   1
+ 
+Scanning [/home/thilland] ...
+ [36m[STR][39;49;00mgeneric_php_includer [08/11/12] [1m/home/thilland/public_html/plugins/editors/rokpad/ace/mode-php.js[39;49;00m
+ -----------------------------------------
+ Scanned Files:  11152
+ Scanner Hits:   1
+ 
+Scanning [/home/thinkbig] ...
+ [36m[HEX][39;49;00meval_base64_mixed [21/03/16] [1m/home/thinkbig/public_html/wp-content/plugins/gravityforms/common.php[39;49;00m
+ [36m[HEX][39;49;00mreversed_base64_decode [25/09/14] [1m/home/thinkbig/public_html/OLD/components/com_contact/metadata.php[39;49;00m
+ -----------------------------------------
+ Scanned Files:  71007
+ Scanner Hits:   2
+ 
+Scanning [/home/thinkdev] ...
+ [36m[HEX][39;49;00meval_base64_mixed [21/03/16] [1m/home/thinkdev/public_html/wp-content/plugins/gravityforms/common.php[39;49;00m
+ -----------------------------------------
+ Scanned Files:  5295
+ Scanner Hits:   1
+ 
+Scanning [/home/vpmetalr] ...
+ [36m[HEX][39;49;00mphp_cmdshell_unclassed_344 [23/11/15] [1m/home/vpmetalr/public_html/manager/manager.php[39;49;00m
+ [36m[HEX][39;49;00mphp_cmdshell_unclassed_344 [16/07/15] [1m/home/vpmetalr/public_html/manager/dc40d7b75.php[39;49;00m
+ [36m[HEX][39;49;00mphp_cmdshell_unclassed_344 [21/08/15] [1m/home/vpmetalr/public_html/manager/2d84646a4.php[39;49;00m
+ -----------------------------------------
+ Scanned Files:  2873
+ Scanner Hits:   3

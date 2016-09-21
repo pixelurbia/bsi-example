@@ -1,0 +1,834 @@
+//IMPORT
+@import 'bourbon/bourbon';
+@import 'neat/neat';
+@import 'helpers/helpers';
+@import 'base/base';
+@import 'custom/custom';
+
+// Type
+h1, h2, h3, h4 { margin:5px 0; margin-bottom:5px; padding:0; text-decoration: none; }
+h1, h1 a { @include font-size(8);  text-transform:uppercase; color:$grey; font-weight:600; font-family:$ops;
+			@include media ($phone) {@include font-size(5.5); }}
+h2, h2 a { letter-spacing:3px; @include font-size(4.5); color:$grey; font-weight:700; text-decoration:none; font-family:$brandon;  }
+h3, h3 a { @include font-size(2.6); color:$grey;  text-decoration:none; font-family:$effra;}
+h4, h4 a {  @include font-size(2.0 ); color:$grey; font-weight:100; font-family:$brandon; }
+h6, h6 a {  @include font-size(1.2); color:$grey; font-weight:100; }
+h5 { @include font-size(1.6); color:$grey; font-family:$ops; font-weight:500; }
+p { text-align:left; padding:10px 0px 10px 3px; @include font-size(1.6);  font-weight:100; line-height:25px;  font-family:$ops; color:$grey;
+@include media ($phone) { text-align:left;}
+i {font-style:italic!important;}}
+a {@include font-size(1.6); color: $orange; cursor:pointer!important; text-decoration:none; 
+    &:hover { color: $grey; text-decoration: none;}
+    &:focus { color: $white;  outline: 0; }
+    &:active { color: $white; }
+  }
+h5.login-notice {  color:$grey; margin: 20px auto; display: block; width: 369px;}
+
+header, section, footer, aside, nav, main, article, figure {
+    display: block; 
+}
+
+
+// Utility // Global Styles
+
+.clearfix { @include clearfix; }
+.clear { clear: both; }
+.left { float: left; }
+.right { float: right; }
+hr { clear: both; width: 100%; height: 1px; background: #bbb; border: 0; }
+img {  height:auto; margin:0; padding:0;}
+.hide {display:none!important;}
+.show {display:block!important;}
+.bo {overflow: hidden; display:block;}
+.page-slug {display:none;}
+.unl {border-bottom:solid 1px $black; padding-bottom:4px; display: inline-block;}
+.readmore { color:$black; float:right; display:inline-block; margin:15px;}
+.master-overlay {display:none;}
+.master-overlay.active {background:$white; z-index: 999; position: fixed; width: 100%; height: 100%; display: block;}
+.overlay-close {@include font-size(2.0); float:right; margin:20px; color:$grey;     position: absolute; right: 20px;}
+.noclick {width: 100%; height: 381px; position: absolute; z-index: 9999;}
+.mauto {margin:0 auto;}
+.alignright {float:right; margin-left:10px; margin-bottom:10px;} 
+.alignleft {float:left; margin-right:10px; margin-bottom:10px;} 
+.gform_wrapper input[type="button"].button.gform_next_button {     float: right!important;margin: 10px 0px 0px 0px!important; }
+.gform_wrapper input[type="button"].button.gform_previous_button, .gform_wrapper input[type="button"].button.gform_next_button, .btn {   margin-top:10px;    padding: 0px 20px 0px 20px; display:inline-block; @include font-size(1.6); line-height:43px; border:0px; width:auto; min-height:45px; text-transform:uppercase; color:$white; text-align:center; border:0px;  background:$orange; transition: all 0.2s ease; 
+    &:hover { color:$orange; background:$white; border-bottom:1px solid $orange;     padding: 0px 30px 0px 30px;  transition: all 0.2s ease; }}
+.btn.white {margin-top:20px;     padding: 0px 20px 0px 20px; display:inline-block; @include font-size(1.6); line-height:43px; border:0px; font-weight:300; width:auto; min-height:45px; text-transform:uppercase; color:$orange; text-align:center; border:0px;  background:$white; transition: all 0.2s ease; 
+    &:hover { color:$white; background:$lightblue; border-bottom:1px solid $white; padding: 0px 30px 0px 30px;   transition: all 0.2s ease; }}
+    .btn.blue { color:$white; background:$lightblue; 
+    &:hover { color:$white; background:$orange; border-bottom:1px solid $white; }}
+blockquote {@include span-columns(12); float:none; margin:10px auto!important; }
+
+
+.col-1 { @include full;}
+
+.col-1-2 { @include colonehalf; }
+.col-1-3 { @include colonethird; }
+.col-1-4 { @include two; }
+.col-4-6 { @include colfourthsixth; }
+.col-2-6 { @include coltwosixth; }
+.col-1-6 { @include colonesixth; }
+.col-5-12 { @include colfivetwelth; min-height:210px;}
+.col-1-12 { @include colonetwelth; }
+
+
+.col-icons img {    width: 200px; float: left; margin-right: 30px; }
+
+
+.col-icons-right { text-align:center;
+	img {   width: 200px; margin: 10px auto; display:block;} }
+
+
+
+
+//circle charts
+.circles { float: none; width: 120px; display: block; margin: 10px auto; 
+	.circles-wrp .circles-text { color:$white!important; font-size: 30px!important; font-size: 3rem!important;font-family:$ops; font-weight:700;}
+}
+
+.single .row ul.chart { margin:50px 0px 50px 0px; overflow:hidden; 
+	@include media ($tablet) { margin:0 !important;}
+	@include media ($phone) { margin:0 !important;}
+	li { @include chartli; background:$orange url(../images/bg.jpg); background-blend-mode: multiply; padding: 10px; border-radius: 10px;  min-height: 320px;
+		@include media ($phone) { margin:10px 0px 20px 0px; min-height: auto;}}
+	p {text-align:left; color:$white;}
+
+
+	}
+
+//breadcrumbs
+ .contentwrap.bc { 
+ 	span a {float:left; @include font-size(1.4); margin-right:3px;} 
+ 	span a span {    line-height: 25px;}
+ 	span {@include font-size(1.4);}
+ }
+
+//preloader
+.pre-loader { background: #ffffff; width: 100%; height: 100%; top: 0; position: fixed; z-index: 99999999999999999; opacity: 0.9; display: block;
+    i {background:url(../images/bsi-logo.png) no-repeat; background-size:100px 100px; width:100px; height:100px; margin: auto; position: absolute; top: 0; left: 0; bottom: 0; right: 0;}
+}
+
+#fp-nav {
+	@include media ($phone) {
+		display:none!important;
+	}}
+
+#fp-nav ul li a.active span {background:$white!important; border:solid 1px $orange; transition: all 0.5s ease;}
+#fp-nav ul li a span { background:$orange!important; transition: all 0.5s ease;}
+
+// @-moz-document url-prefix() { }
+
+body {
+	background:$offwhite url(../images/bg.jpg) top left / cover ; 
+	background-size:100%;
+	@include font-size(1.6); 
+
+}
+
+
+  html,
+  body{
+    width:100%;
+    overflow-x:hidden!important;
+  } 
+
+// .ibg-bg {position: absolute;}
+// .bg { background:$offwhite; position: absolute; width: 100%; z-index: 0; }
+
+.mobile-nav { display:none; width: 420px; background: $orange; height: 100%; top: 0; position: fixed; z-index: 999999999; transition: all 0.2s ease; left:-420px; overflow:scroll;
+	li { float:none; margin-left:30px; padding-top: 2px;
+	a { text-transform:uppercase;  font-weight:500;  @include font-size(2.0);  cursor:pointer; color:$white; }
+	}
+	@include media ($tablet) { display:block; }
+}	
+.mobile-close { color: #fff; position: relative; margin: 10px 0px 0px 0px; width: 30px; height: 26px; display: block; z-index: 99999; left: 10px; }
+.mobile-open {  background:url(../images/mobopen.png);  width: 30px; height: 26px; display: none; float: right; margin: 10px 0px 0px 0px;
+    @include media ($tablet) {
+		display:block;
+	}
+}		
+.content-contain { position:relative; left:0; transition: all 0.2s ease;}
+
+.header { @include full; z-index:99; position:relative;
+	.header-container {	@include headerarea; margin:0 auto!important; float:none; padding:20px 0px 0px 0px; 
+		@include media ($phone) { padding:10px 0px 10px 0px; }}
+
+
+    
+    
+.logo-contain {float:left;}
+.logo {width:230px; height:auto;}
+.nav {width:auto; float:right; 
+	.menu-item-2341 a { background:$lightblue; color:$white; padding: 10px 10px 10px 10px; 
+		&:hover {color:$white; background:$orange;}}
+	li { float:left;  margin-left:20px;  padding-top: 10px;
+		a { text-transform:uppercase;  font-weight:500;  @include font-size(1.2);  cursor:pointer; color: $grey;
+  			&:hover { color: $orange; }
+			}
+	}
+	@include media ($tablet) {
+		display:none;
+	}
+}
+.nav li:hover > .sub-menu {display:block;}
+.sub-menu {display:none; background:$orange; width: 100%; max-width:270px;  height: auto; position: absolute; padding: 10px; z-index:99999;
+ li { float:none; margin:0; padding:0; width: 100%; display:block; 
+ 	a { color:$white; width:100%; padding:5px; width: 100%; display:block; 
+ 		&:hover {color:$orange; background:$white; padding:5px;}}
+ }
+ }
+}
+
+
+
+#fullpage { @include span-columns(12); z-index:9; float:none!important; overflow:hidden; padding-bottom:40px;
+	.section { padding-left:50px; padding-right:50px; z-index:9; padding-top: 15%;
+			@include media ($phone) {
+			padding-right:0px;
+			padding-left:0px;
+			padding-top: 10%;
+			height:auto!important;
+		}
+		@media (max-height: 1200px) {
+			padding-top:8%;
+		}
+		@media (max-height: 800px) {
+			padding-top:2%;
+		}
+		
+	}
+	.first { 
+		@include media ($tablet) { padding-top:0px!important;}
+		@include media ($phone) { padding-top:13%!important;}
+		h1, h4 {text-align:center; margin-bottom:0px;}  
+		span, p span, p {text-align:center;}
+	.fp-tableCell {@include four; max-width:360px; float:none!important; margin:0 auto!important; margin-right:auto!important;
+		@include media ($tablet) { width:100%; height:auto!important; min-height:600px;}
+		@include media ($phone) { height:auto!important;}}
+		.text-contain {display:none; margin-top: 20px; z-index:999;
+			@include media ($phone) { margin-top: -140px; padding:10px; 
+    		}
+    	}
+		.btn {margin:10px auto!important; display:none; }
+		.img-obj { width:80%; position:relative;  height:220px; 
+				// @include media ($tablet) { width:100%;}
+				@include media ($phone) {
+					margin-top:-30px; margin-bottom:50px; height:300px;
+	    		}
+			.dogs {position:absolute; display:none; top:0; left:0; transition: all 0.5s ease;}}
+				.dogs_one {    margin: 10px 10px 0px 40px; width: 80%;  
+					@include media ($phone) { margin:-15px 10px 0px 70px;}}
+				.dogs_two {    margin: 100px 0px 0px 135px;   width: 53%; 
+					@include media ($phone) { margin:70px 0px 0px 150px;}}
+				.dogs_three {  margin: 100px 0px 0px 10px; width: 50%;  
+					@include media ($phone) { margin:70px 0px 0px 40px;}}
+	}
+	
+	.second.section-4 {padding-top:5%!important;
+	@include media ($tablet) { padding-top:0px!important;}
+	@media (max-height: 800px) { padding-top:0%!important; }}
+	.second { padding-top:8%!important; 
+		@include media ($tablet) { padding-top:0px!important;}
+		@include media ($phone) { padding-top:0px!important;}
+		@media (max-height: 800px) { padding-top:2%!important; }
+	.fp-tableCell {@include contentarea; margin:0 auto!important; float:none; padding:30px 0px 0px 0px; 
+	@include media ($tablet) { padding-top:0px!important; height:auto!important; min-height:600px;}
+	@include media ($phone) { padding-top:0px!important; height:auto!important; min-height:600px;}
+	@media (max-height: 800px) { padding-top:0%!important; }}
+	.text-contain { @include textcontain; float:left; display:none; z-index:999;
+		@include media ($tablet) { padding:10px; margin-top:-100px;  }
+		@include media ($phone) { margin-top:0px; }
+	}
+		.img-obj { @include half; float:right; position:relative; height:350px; 
+			@include media ($phone) {  position: relative; margin: 20px 0px; width: 70%; height: 279px; float: none; }
+			.dogs {position:absolute; transition: all 0.5s ease;
+				@include media ($phone) { width:100%;} 
+				}
+		}
+				.dogs_one {  margin: -4px 10px 0px 300px; width: 50%; 
+					@include media ($tablet) { margin:-4px 10px 0px 580px;}
+					@include media ($phone) {     margin: 16px 10px 0px 140px;}}
+				.dogs_one.bigger {width:70%; margin:-50px 0px 0px 150px; 
+					@include media ($tablet) {  width: 50%; margin: -50px 0px 0px 300px;}
+					@include media ($phone) {   width:100%;  margin: 0px 0px 0px 50px; }}
+				.dogs_two {  margin: 140px 0px 0px 399px;  width: 40%;
+					@include media ($tablet) { margin:140px 0px 0px 509px; }
+					@include media ($phone) {       margin: 160px 0px 0px 120px; width: 60% !important;}}
+				.dogs_three { margin:200px 0px 0px 300px;  width: 30%; 
+					@include media ($tablet) { margin:161px 0px 0px 600px; }
+					@include media ($phone) {     margin: 151px 0px 0px 210px; width: 60% !important;}}
+				.dogs_obowl {  margin: 230px 0px 0px 0px; 
+					@include media ($tablet) {margin:181px 0px 0px -100px; }
+					@include media ($phone) {margin: 211px 0px 0px -30px; width: 40% !important;}}
+				.dogs_bowl {  margin: 250px 0px 0px 100px;
+					@include media ($tablet) { margin:230px 0px 0px -111px; }
+					@include media ($phone) {      margin: 230px 0px 0px -30px; width: 31% !important;}}
+	}
+
+
+	.second.right { 
+		.fp-tableCell {@include contentarea; margin:0 auto!important; float:none; padding:30px 0px 0px 0px; 
+		@include media ($tablet) { padding-top:0px!important; height:auto!important; min-height:600px;}}
+		.text-contain {@include textcontain; float:right; display:none; z-index:999;
+			@include media ($tablet) { padding:10px; margin-top:-100px; }
+    		@include media ($phone) { 
+    			margin-top:0px;
+    			background:none;
+    		}}
+		.img-obj { @include half; float:left; position:relative; height:300px; 
+			@include media ($tablet) { height: 470px; }
+			@include media ($phone) { position:relative; height: 190px; }
+    	}
+		.dogs_two.invert_dog {  margin: 20px 0px 0px 50px;  width: 100%;
+			@include media ($phone) { margin:0px; width:100%!important;}}
+		.dogs_three.invert_dog {  margin-top: -69px;  margin-left: 180px; margin-bottom: 0px; margin-right: 00px;  width: 80%;}
+		.dogs_one.delight { margin: 7% 0px 1% 45%; width: 50%; 
+		    // @include media ($tablet) { margin: 76px 0px 10px 450px; width:50%; }
+		    @include media ($phone) {     margin: -30px 0px 0px 121px; width: 60%; }
+		}
+		.dogs_two.delight {  margin: 27% 0px 0px 1%; width: 26%;
+   		    // @include media ($tablet) { margin: 141px 0px 0px -141px; }
+   		    @include media ($phone) {     margin: 70px 0px 0px -10px; width: 30%!important; }
+		}
+		.dogs_three.delight { margin: 30% 0px 0px 51%;  width: 30%;
+   		    // @include media ($tablet) { margin: 279px 0px 0px 510px; }
+   		    @include media ($phone) {     margin: 70px 0px 0px 170px; width: 40%!important; }
+		}
+		.dogs_obowl.delight { margin: 39% 0px 0px 30%;   width: 40%;
+   		    // @include media ($tablet) {  margin: 340px 0px 0px 300px; }
+   		    @include media ($phone) {      margin: 140px 0px 0px 110px;}
+		}
+	}
+}
+
+// .home.page .bg {position:absolute; margin-top:0;}
+// .page .bg, .archive .bg {  margin-top:-100px; position:relative; background-image:url(http://localhost:8888/wp-content/themes/bsi-clean-theme/images/bg.jpg); background-repeat:repeat-y; background-size:100% ; }
+.single, .archive { 
+	position:relative; 
+	// margin-top:100px; 
+	.ftimg.default .theimg { background:$orange url(http://bsi.bigshotdesign.com/wp-content/uploads/2016/02/Kansas-City-Skyline-Day-header-001.jpg); background-size:cover!important;  opacity:0.7;}
+	.ftimg { height:250px; padding-top:5%; margin-bottom:20px; background-blend-mode: multiply; background-size:100%; background:$orange url(../images/bg.png); background-size:cover!important; position:relative;
+		
+		h2, h4 { text-align:center; text-transform:uppercase; color:$white; z-index:99; position:relative;}
+			.theimg {    width: 100%; height: 251px; position: absolute; top: 0; opacity:0.3; background-size:100%; background-size:cover!important; }
+	}
+	h3 {font-style:italic;}
+	.row { @include full;  padding:50px 0px 0px 0px; height:auto; margin:10px 0px 0px 0px; }
+	.row.highlight { padding:30px 0px 30px 0px; background-blend-mode: multiply; background-size:100%; background:$orange url(../images/bg.jpg); margin-bottom:50px;
+		a {color:$white; text-decoration:underline;}
+		a.btn.white {color:$orange; text-decoration:none!important;
+			&:hover{color:$white;}}
+		p, h1,h2,h3,h4,h6,ul,ol,li {color:$white;}}
+	.contentwrap { 
+		@include contentarea; 
+	}
+	.author { width: auto; margin:20px 0px 10px 0px; float:right; clear:both; line-height:28px; @include font-size(1.6);
+			@include media ($phone) { @include font-size(1.5); text-align:left;}
+			span {float:right;}}
+			
+			h2 { clear:both; }
+			.gravatar { float:right; margin-left:10px;
+				@include media ($phone) { float:left; margin:0px; }} 
+			.gravatar img { width: 30px!important; border-radius: 20px; margin-right:10px;} 
+
+		.tweetthis {  width: 100%; max-width: 770px; overflow: hidden; margin: 60px auto; display: block; float: none; clear: both;
+			a {background:url(../images/tweet.png) no-repeat; width:140px; height:30px; display:block;  float:left;}
+			hr { width: 34%; float: left; clear: none; margin: 10px 21px 0px 21px; }
+		}
+	.quote {width:100%; height:auto; margin:20px 0px 20px 0px; padding:30px; color:$white; @include font-size(2.4); display: block; text-align: center;}
+	blockquote {width:100%; height:auto; margin:20px 0px 20px 0px; padding:30px; color:$white; @include font-size(2.4); display: block; text-align: center;}
+}
+.archive p { clear:both; }
+
+.single .row {
+		ul { margin: 10px 0px 10px 40px; list-style-type: circle;
+		li {list-style-type: circle; @include font-size(1.6); font-weight:normal;}
+	}
+		ol { margin: 10px 0px 10px 40px; list-style-type: decimal;
+		li {list-style-type: decimal; @include font-size(1.6); font-weight:normal;}}
+
+	.icons.icons-third { overflow:hidden; padding:0px; margin-bottom:40px!important;
+		li {@include iconsthird; text-align:center; @include font-size(1.5);
+		img {max-width:150px;}}
+	}	
+}
+
+.ebook-cta { width: 64%; overflow: hidden; padding: 20px; margin: 25px auto; background:$orange url(../images/bg.jpg);  background-blend-mode: multiply; color:white;
+	@include media ($phone) {width:90%;}
+	img {float: left; width: 16%;}
+	.btn {margin-left: 30px;}
+	.text-contain { float: left; width: 70%; margin: 20px 0px 0px 30px; @include font-size(1.8);
+		i {font-style:italic;}}}
+
+//FAQs
+
+.faq-box{ float: left; width: 100%; margin-top: 0; }
+.accordian-title { margin-top: 20px; float: left; width: 100%; position: relative; margin-bottom: 3px;color: $white; background: $orange; padding: 2% 13% 2% 5%; @include font-size(2.0); }
+.accordian-content { display: none; float: left; width: 100%; position: relative; padding-top: 3%; @include font-size(1.6); 
+	a {color:$white; text-decoration:underline;}
+	a.btn {color:$orange; text-decoration:none;}
+	p {color:$white;}}
+.background { background-position: 97% 8%;  background-size: 2.5%; display: block; background-color: $orange; color: $white; }
+.arrow {position: relative; float: right; margin-left:-20px; margin-top: 10px; 
+	@include media ($phone) {
+		display: none; } 
+    .left {  -webkit-transform: rotateZ(40deg); -ms-transform: rotateZ(40deg); transform: rotateZ(40deg); background: $white; border-radius: 5px; width: 30px; height: 4px; position: absolute; left: 0; transition: all 0.1s ease;}
+    .right {  -webkit-transform: rotateZ(-40deg); -ms-transform: rotateZ(-40deg); transform: rotateZ(-40deg); background: $white; border-radius: 5px; width: 30px; height: 4px; position:absolute; left: 21px; transition: all 0.1s ease;}
+}
+.straight { transition: all 0.1s ease; left: 10px !important; }
+
+
+
+//posts - blogs
+.single.post {
+	h2.heading {text-align:center; margin-bottom:50px;}
+	img {
+		@include media ($tablet) {}
+		@include media ($phone) { margin: 0px; float: none; width: 100%;}
+	}
+	.author { width: auto; margin: 20px auto; display: block; line-height: 28px; float: right; max-width: 420px;
+		.gravatar {margin-right:10px; }}
+	.tweetthis hr { 
+		@include media ($phone) { width:15%; }}
+	.ftimg {
+		@include media ($phone) { height:auto; min-height:300px;}
+		h2, h4 { text-align:center; text-transform:uppercase; color:$white; z-index:999; position: relative; left: 0; right: 0;  width: 80%; margin: 0 auto;}
+		.theimg {    width: 100%; height: 251px; position: absolute; top: 0; opacity:0.3; background-size:100%; background-size:cover!important; 
+			@include media ($phone) { height:300px;}}
+		h2 { 
+			@include media ($phone) { @include font-size(3.4); padding:10px;}
+	   	}
+	 }
+	// .overlay { background: url(../images/blacktrans.png); top:0px; width: 100%; height: 250px; display: block; z-index: 88; position: absolute; }
+	.contentwrap { @include contentarea; padding:20px;}
+}
+
+.large-cta.full-cta {
+//ctas
+.hs-cta-wrapper { 
+	display: block;
+float: right!important;
+overflow: visible;
+height: 50px;
+margin: 0px!important
+
+span {
+	float:right!important;
+}
+
+ }
+
+}
+
+//ctas
+.hs-cta-wrapper { 
+	display: block;
+float: none!important;
+overflow: hidden;
+height: auto;
+margin: 10px 0px 10px 0px;
+
+span {
+	float:none!important;
+}
+
+ }
+
+//misc ctas 
+.whats-up.active { display:block;}
+.whats-up { z-index:999999; background: url(../images/dogs.png) no-repeat; width: 249px; height: 171px; background-size: 100px 70px; display: none; position: absolute;  top: 325px;left: 452px; right: 0; margin: 0 auto;  opacity:1; transition: all 0.2s ease; 
+			@media (max-height: 1200px) {
+				top: 191px;
+		}
+    	@include media ($tablet) { top: 111px; left: 512px;}
+		@include media ($phone) {  top: 81px; left: 212px;}}
+
+.bofo.dog-bowl-cta.active { display:block;}
+.bofo.dog-bowl-cta { display:none; z-index:55; @include contentarea; transform: none; bottom: 0px; position: fixed; left: 0; right: 0; z-index: 88; margin: 0 auto;  height: 130px; padding-left:20px;
+	  @include media ($phone) {  height: auto; overflow: hidden; position: relative; padding: 0px; margin-bottom: 100px!important; }
+	.btn {float:right; margin: 30px 0px 0px 30px;
+ 		@include media ($phone) {float: none; margin: 0px auto; text-align: center; width: 200px; height: 20px; overflow: hidden; display: block;}}
+	.text-contain { text-align: left; margin: 5px auto; display: block; float:left; width:60%; padding-left:30px;
+		//text-align: right; margin: 1px auto; display: block; position: absolute; right: 0; width: 380px;
+			@include media ($phone) { width: 100%; margin: 20px auto; text-align: center; position: relative; padding: 0px;}
+	h4 {text-transform:uppercase; @include font-size(1.2); float:left;}
+	h2 {text-transform:uppercase; float:left;}
+	h4,h2 {float:none}
+	
+	a {float:left;}}
+	.the-bowl { background:url(../images/book-boto.png) no-repeat; background-size: 150px 110px; background-position: 0px 19px; width: 150px; display: block; height: 200px; float:left;
+		//background:url(../images/dogbowl.png) no-repeat;  background-size: cover;  background-position:-20px 7px; width:40%; display:block; height:200px;
+		@include media ($phone) { float: none; margin: 0 auto; height: 130px;}}}
+
+.single.post .large-cta, .large-cta {   width:100%; height:auto; margin: 0 auto; color: white; padding: 30px; display:inline-block; background-size:cover!important;
+    //margin-top:30px!important;
+
+	@include media ($phone) {background-image:none!Important;}
+	h3 {text-align:left; color:$white; text-decoration:none; font-style:normal;}
+	.img-contain {width:15%; margin-right:30px; float:left;
+		@include media ($phone) {  display:none;} }
+	.text-contain {width:75%; float:left;
+		@include media ($tablet) { width:60%;}
+		@include media ($phone) { width:100%;}}
+	h2,p {color:$white;} 
+	}
+.left-cta {margin-top:30px!important; 
+ background-position: 95% 0px;}
+ .single.post .full-cta, .full-cta {
+	.text-contain {width:100%; float:left;
+		@include media ($tablet) { width:60%;}
+		@include media ($phone) { width:100%;}}
+ }
+.single.post .right-cta, .right-cta {
+	.img-contain {float:right;}
+	.text-contain {float:right; width:65%;
+		@include media ($phone) {  float:left;}}
+}
+
+//resources
+
+.single.resource {
+	a {opacity:1; display:block; transition: all 0.5s ease;
+		&:hover{opacity:0.7; transition: all 0.5s ease;}}
+
+	.resource-item { @include third; height: auto; min-height: 350px; padding: 10px; text-align: center; float: left; margin: 30px 10px 11px -1px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;
+		img { width: 150px; margin: 0 auto; display: block;}}
+
+}
+
+//portfolio
+
+
+.single.port {
+	// .item-1, .item-2, .item-4, .item-5 { width:25%;  float:left; height:235px; overflow:hidden; 
+	// 	@include media ($tablet) {width:30%; float:left; height:200px; margin:10px; clear:none;}
+	// 	@include media ($phone) { width:100%; float:none; margin:0px 0px 10px 0px; height:200px;}}
+	// .item-7, .item-8, .item-9, .item-10 { width:25%; float:right; height:235px; overflow:hidden;
+	// 	@include media ($tablet) {width:30%; float:left; height:200px; margin:10px; clear:none;}
+	// 	@include media ($phone) { width:100%; float:none; margin:0px 0px 10px 0px; height:200px;}}
+	// .item-3 { width:50%; float:right;  height:470px; overflow:hidden; 
+	// 	@include media ($tablet) {width:30%; float:left; height:200px; margin:10px; clear:none;}
+	// 	@include media ($phone) { width:100%; float:none; margin:0px 0px 10px 0px; height:200px;}}
+	// .item-6 { width:50%; float:left;  height:470px; overflow:hidden; clear:both;
+	// 	@include media ($tablet) {width:30%; float:left; height:200px; margin:10px; clear:none;}
+	// 	@include media ($phone) { width:100%; float:none; margin:0px 0px 10px 0px; height:200px;}}
+	.portfolio-item { position:relative; @include quart; overflow:hidden; margin:20px!important; height:400px;
+		&:hover{ transition: all 0.5s ease;}}
+	.portfolio-item:hover > .desc { opacity:1;  transition: all 0.5s ease;}
+	.portfolio-item:hover > img { transform:scale(1.1) rotate(2deg); transition: all 0.6s ease; }
+	p {text-align:left;}
+	.desc { position: absolute; top: 0; background: url(../images/otrans.png); width: 100%; height: 100%; display: block; z-index: 1; opacity:0; transition: all 0.2s ease; padding-top:25%; text-align:center;}
+	h2 {text-transform:uppercase;}
+	h3 {text-transform:uppercase; color:$white; font-style:normal; text-align:center;  @include font-size(3.5); font-weight:700;}
+
+	img {  width:100%; transform:scale(1) rotate(0deg); transition: all 0.6s ease; }
+
+	.text-contain { @include four; }
+	hr {width:19%;}
+	
+	.collateral { @include two-third;
+		img {  width:100%; transform:scale(1) rotate(0deg); transition: all 0.6s ease; 
+			&:hover { transform:scale(1.1) rotate(2deg); transition: all 0.6s ease; }}
+		.port-item {overflow:hidden; margin-bottom:15px;}
+		.col-w1, .col-w6 { @include four; max-height:639px; height:auto;}
+		.col-w2, .col-w7 { @include porthalf; max-height:300px; margin-right:0px;}
+		.col-w3, .col-w8 { @include porthalf; max-height:378px; margin-right:0px;}
+		.col-w4, .col-w9 { @include full; max-height:500px;}
+		.col-w5, .col-w10 { @include full; max-height:500px;}
+	}
+}
+#field_4_23 label {display:none!important;}
+// Contact Page
+ #map { width:100%; height:300px;}
+#gform_submit_button_4 {font-weight:500;}
+ .gform_wrapper ul li.gfield {clear:none!important;}
+ .gform_wrapper ul li.gfield {clear:none!important;}
+.gform_wrapper input { width:47%; float:left!important; margin-right:2.5%!important;  @include font-size(1.3); margin-top: 15px; width: 95%; padding-right: 2px; border: 0px; height: 40px; padding-left: 10px; color: $orange; border-radius: 3px; -webkit-appearance:none!important; -moz-appearance:none!important; appearance:none!important;}
+.gform_wrapper textarea {  @include font-size(1.3);  padding: 12px 0px 0px 5px!important; border: 0px; color: $orange; border-radius: 3px; -webkit-appearance:none!important; -moz-appearance:none!important; appearance:none!important;}
+.gform_button.button {margin-top:20px; display:block; @include font-size(1.6); line-height:0px; border:0px; font-weight:300; width:150px; height:45px; text-transform:uppercase; color:$white; text-align:center; border:0px;  background:$orange; transition: all 0.2s ease; 
+    &:hover { color:$orange; background:$white; border-bottom:1px solid $orange; width: 200px;  transition: all 0.2s ease; }}
+
+//sign up form
+	
+	#field_1_1 input {width:100%;
+		@include media ($phone) { width:100%!important; float:none!important; margin:10px 0px 10px 0px!important;}}
+	#input_1_2 {width: 48.6%; margin-right:18px!important;
+	@include media ($phone) { width:100%!important; float:none!important; margin:10px 0px 10px 0px!important;}}
+	#input_1_3 {width: 48.6%; margin-right:0px!important;
+		@include media ($phone) { width:100%!important; float:none!important; margin:10px 0px 10px 0px!important;}}
+
+
+#gform_wrapper_3 {display: block; 	margin: 0 auto; width: 640px;
+	li {    width: auto; float: left;
+			@include media ($phone) { width:100%!important; }
+		span {    padding: 0px 10px 0px 0px;
+			@include media ($phone) { width:100%!important; }}
+		input { padding: 1px 0px 0px 11px; font-size: 13px;
+			@include media ($phone) { width:100%!important; }}}
+		.name_last {padding:0px;}
+	
+	#field_3_2 { max-width: 232px; margin-right: 20px; 
+		input { width: 100%; max-width:400px; font-size: 13px;}
+	}
+}
+
+.gform_footer.top_label { width: 100px; float: left; height:39px; clear: none!important; margin: 3px!important; padding: 0px!important; 
+input {padding: 0px; height: 39px;}}
+
+
+#input_1_2, #input_1_3 {margin-bottom:25px;}
+
+textarea::-webkit-input-placeholder,  input::-webkit-input-placeholder  {color: $orange ; @include font-size(1.3); }
+textarea:-moz-placeholder, input:-moz-placeholder {color: $orange ; @include font-size(1.3); }
+textarea::-moz-placeholder, input::-moz-placeholder {color: $orange ; @include font-size(1.3); }
+textarea:-ms-input-placeholder,  input:-ms-input-placeholder  {color: $orange ; @include font-size(1.3); }
+
+ .gform_wrapper {
+ 	form label {display:none!important;}
+ 	input {@include half; }
+ }
+
+//landing pages
+
+.landingpage {
+	.content-wrap {@include half;}
+	.gform_wrapper {@include half;}
+}
+
+
+//redo-quiz
+.redo-quiz_wrapper.gform_wrapper ul.gfield_radio li input[type=radio] {
+		width:30px!important; 
+		margin-right: 12px!important;
+		margin-top:0px!important;
+}
+.redo-quiz_wrapper.gform_wrapper  {
+	ul.gfield_checkbox {margin-left:20px;}
+	.gfield_checkbox input { margin: 0px!important; }
+
+	 ul.gfield_radio li { 
+	 	padding-left:20px!important;
+	 	font-family:$ops!important;
+	 	@include font-size(1.6);
+	 	margin-bottom:0px!important;
+	 }
+	form label {
+		display:block!important;
+		font-weight: 100!Important;
+		font-family:$ops!important;
+		@include font-size(1.6);
+	}
+	input[type="radio"] {
+		height:30px; 
+		-webkit-appearance: radio !important;
+        -moz-appearance: radio !important;
+    	appearance: radio !important;
+    }
+    input[type="checkbox"] {
+		height:30px; 
+		-webkit-appearance: checkbox !important;
+        -moz-appearance: checkbox !important;
+    	appearance: checkbox !important;
+    }
+
+
+	#field_4_9,#field_4_10,#field_4_11,#field_4_12 {
+		label {display:none!important;}}
+}
+
+
+//social form 
+.social-request_wrapper.gform_wrapper ul.gfield_radio li input[type=radio] {
+		width:30px!important; 
+		margin-right: 12px!important;
+		margin-top:0px!important;
+}
+.social-request_wrapper.gform_wrapper  {
+	ul.gfield_checkbox {margin-left:20px;}
+	.gfield_checkbox input { margin: 0px!important; }
+
+	 ul.gfield_radio li { 
+	 	padding-left:20px!important;
+	 	font-family:$ops!important;
+	 	@include font-size(1.6);
+	 	margin-bottom:0px!important;
+	 }
+	#field_5_5 label, #field_5_6 label, #field_5_7 label  {
+		display:block!important;
+		font-weight: 100!Important;
+		font-family:$ops!important;
+		@include font-size(1.6);
+	}
+	#field_5_7 input {
+		width:100%;
+	}
+	#field_5_9 input {
+		width:48%!important;
+	}
+	input[type="radio"] {
+		height:30px; 
+		-webkit-appearance: radio !important;
+        -moz-appearance: radio !important;
+    	appearance: radio !important;
+    }
+    input[type="checkbox"] {
+		height:30px; 
+		-webkit-appearance: checkbox !important;
+        -moz-appearance: checkbox !important;
+    	appearance: checkbox !important;
+    }
+
+}
+
+
+
+//our team 
+.staff {padding-left:4%;
+@include media ($phone) {padding:0px;}}
+.staff-member { @include two;  margin-bottom:20px; height:400px;
+	@include media ($tablet) { margin-right:42px; }
+	.bio {display:none; padding-bottom:50px;
+		.certs {
+			overflow: hidden; height: auto; display: block; margin-bottom:20px;
+			img {float:left; border-radius:0px!important; margin-right:15px;}
+		}
+	}
+	img {border-radius:60%;}
+ 	h3 {color:$grey; font-style:normal;}
+ 	h5 {color:$orange;} 
+ 	h3 ,h5 {text-align:center; font-weight:500; text-transform:uppercase;}
+ 	.staff-photo { border-radius:50%; 
+		  filter: gray; /* IE6-9 */
+  		  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+  		  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+  		  transition: all 0.2s ease;
+		&:hover {
+  			filter: none;
+  			-webkit-filter: grayscale(0);
+  			transition: all 0.2s ease;
+  		}
+  		@include media ($phone) { display: block; margin: 0 auto; }
+ 	}
+ }
+
+ .staff-member.lightbox {display:none;}
+ .staff-member.lightbox.active { @include contentarea; float:none; display:block; position: fixed; height: 100%; overflow: scroll; top: 5%; left: 0; right: 0; margin: 20px auto!important; padding: 40px; z-index: 9999999; transition: all 0.2s ease;
+    img { margin:0 auto; display:block;}
+    .bio {display:block;}
+ }
+
+
+.icons { @include contentarea; padding:50px 0px 50px 0px; 
+ li, .icon-area { @include icons; margin: 0px 1% 0px 1%!important; opacity:1; transition: all 0.2s ease; 
+ 	&:hover {opacity:0.7; 	transition: all 0.2s ease;}
+ 	h6 {text-align:center; color:$darkgrey; font-style:normal; @include font-size(1.5); font-weight:600; letter-spacing:1px; text-transform:uppercase; }
+ 	i, .img-contain {width:100%; height:110px;  margin-bottom: 20px;
+ 		img { width:100%; max-width:110px; margin:0 auto!important; display:block;} }
+ 	
+ }
+}
+
+
+.blog-roll {
+		h2 {
+			@include media ($phone) {@include font-size(2.2);}
+		}
+	.contentwrap { height:auto; display:block;}
+	.blog-post { 
+		p {text-align:right;}}
+	article { @include full; margin:50px 0px 50px 0px;
+		.img-contain {width:45%; max-height:370px; overflow:hidden; float:right; padding-top:17px;
+			@include media ($tablet) {width:100%; max-height:300px; margin-bottom:10px;}}
+		img {width:100%; float:right; } 
+		section {@include half; padding-right:40px; text-align:right; 
+		.btn {float:right;}}
+	}
+	article.left { @include full; margin:50px 0px 50px 0px;
+		.author { width: auto; margin:20px 0px 10px 0px; float:left; clear:both; line-height:28px;}
+		p {text-align:left;}
+		.img-contain {float:left;}
+		img {width:100%; float:left; } 
+		section {@include half; width:54%; padding-left:40px; float:left; text-align:left;
+		.btn {float:left;}}
+	}
+
+	.pagenav {width: 100%; max-width: 270px; text-align: center; margin: 50px auto; display: block; overflow:hidden;
+		.alignright {float:right;}
+		.alignleft {float:left;}
+	}
+}
+
+//culture
+
+.grams {width:25%; height:320px; float:left; margin:0px; padding:0px; overflow:hidden; position:relative; 
+
+	@include media ($tablet) {width:50%; height:340px;}
+	@include media ($phone) { width:100%; float:none;
+		.gram { margin:0px;}}
+	
+		
+	.desc-contain { overflow:scroll; position:absolute; bottom:0; width:90%; height:auto; background:url(../images/otrans.png); margin:20px; padding:20px; display:block; @include font-size(1.4); display:block;   -webkit-transform-origin: center bottom; transform: perspective(0px) rotateX(90deg);  transition: all 0.5s ease; 
+	.desc { height:auto; width:86%; height:auto; padding-bottom: 20px; color:$white;}}
+	
+	
+
+	.hash_tag {color:$white; font-weight:700; }
+	.gram {width:140%; margin: -130px 0px 0px -60px; max-width:300%;}}
+.grams:hover > .desc-contain { -webkit-transform-origin: center bottom;  transform: perspective(600px) rotateX(-1deg);  display:block; transition: all 0.5s ease; } 
+
+
+
+// to top button icon-area
+.home .to-top { display:none; }
+.to-top { display:block; margin-bottom:40px;
+ 		img {}
+ 		span {display:block; width:110px; height:80px; margin:10px auto; background:url(../images/othermurray.png) no-repeat; background-size: 120px 100px;}
+ 		a {@include font-size(1.2); font-weight:100;     margin: 10px auto; text-align: center; width: 140px; display: block; }
+ 	}
+
+
+// footer
+.home .footer { position:fixed; bottom:0; }
+
+.sm { float:left; width:164px; margin-top: -2px;
+	@include media ($phone) {float:none; margin:0 auto;}
+	li { 
+		a { background:url(../images/sm.png)  no-repeat; display: block; width: 26px; height: 21px; float: left; 
+			&:hover { opacity:0.7;}}
+	}
+	.facebook a {background-position: 10px 3px;}
+	.twitter a {background-position: -24px 4px;}
+	.linkedin a {background-position: -58px 3px;}
+	.gplus a {background-position: -87px 3px;}
+	.instagram a {background-position: -122px 3px;}
+	.pinterest a {background-position: -146px 3px;}
+}
+
+.footer-nav {float:right;
+@include media ($phone) { overflow: hidden; float: none; margin: 0 auto; display: block; height: auto; width:164px; }}
+.footer { float:left; height:35px; background:$orange; color:$white; width:100%; font-weight:100; @include font-size(1.2); padding:8px; z-index:9999; position:fixed; bottom:0; 
+	@include media ($phone) {height:50px}
+	a {font-weight:100; @include font-size(1.2);}
+	.copyright {width:auto; float:left; font-weight:500; @include font-size(1.2); 
+		@include media ($phone) {float:none; text-align:center;}
+		a {color:$white; font-weight:500;}}
+	.nav {width:auto; float:right;  
+		@include media ($phone) { display:none;}
+		li {float:left; margin-left:30px; color:$white; font-weight:100; @include font-size(1.2);
+			a {text-transform:uppercase; font-weight:100; @include font-size(1.2); cursor:pointer; color:$white;} 
+		}
+	}	
+
+	
+
+}
+
+
+// Katia's changes per QA doc
+
+// make inline thank you centered
+#gform_confirmation_message_1 { text-align: center; }
+
+em { font-style: italic !important; }
+
+

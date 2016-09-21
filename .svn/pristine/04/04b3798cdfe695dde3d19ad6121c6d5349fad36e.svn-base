@@ -1,0 +1,124 @@
+/*STYLES FOR MOBILE MENU TO X */
+$button-size : 2.5rem; 
+$transition: .3s; // increase this to see the transformations in slow-motion
+ 
+// Media Query sizes  
+$phone:600px;
+$tablet:1080px;
+$horz:1180px;
+
+//FONT
+@mixin font-size($n) {
+	font-size: $n + px; font-size: ($n / 10) + rem;
+}
+
+@mixin font-size($sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+//OMEGA
+@mixin omega-reset($nth) {
+  &:nth-child(#{$nth}) { margin-right: flex-gutter(); }
+  &:nth-child(#{$nth}+1) { clear: none }
+}
+
+//CUSTOM SIZES
+@mixin full {
+	@include span-columns(12);
+}
+
+@mixin contentarea {
+	@include span-columns(11); 
+	float:none!important;
+	margin:0 auto!important;
+	max-width:1200px;
+		@include media ($tablet){
+			@include span-columns(11);
+		} 
+		@include media ($phone){
+			@include span-columns(11);	
+		}
+}
+
+@mixin textcontain {
+	@include span-columns(5); 
+		@include media ($tablet){
+			@include span-columns(12);
+			display:none;
+		} 
+		@include media ($phone){
+			@include span-columns(12);
+			display:none;	
+		}
+}
+
+@mixin two-third {
+	@include span-columns(8);
+	@include media ($tablet){
+		@include span-columns(8);
+	} 
+	@include media ($phone){
+	@include span-columns(12);
+
+	}
+}
+@mixin half {
+	@include span-columns(6);
+	@include media ($tablet){
+		@include span-columns(12);
+	} 
+	@include media ($phone){
+	@include span-columns(12);
+	}
+}
+@mixin quart {
+	@include span-columns(4);
+	@include media ($tablet) {
+		@include span-columns(12);
+	}
+	@include media ($phone) {
+		@include span-columns(12);
+	}
+}
+
+@mixin four {
+	@include span-columns(4);
+	@include media ($tablet) {
+		@include span-columns(8);
+	}
+	@include media ($phone) {
+		@include span-columns(11);
+	}
+}
+
+@mixin third {
+	@include span-columns(3);
+	@include media ($tablet) {
+		@include span-columns(6);
+		margin-right: 0px;
+	}
+	@include media ($phone) {
+		@include span-columns(12)
+	}
+}
+
+@mixin icons {
+	@include span-columns(2.5);
+	@include media ($tablet) {
+			@include span-columns(2.3);
+	}
+	@include media ($phone){
+		@include span-columns(12);
+		margin-bottom: 30px;
+	}
+}
+
+@mixin two {
+	@include span-columns(2.8);
+	@include media ($tablet) {
+			@include span-columns(3);
+	}
+	@include media ($phone){
+		@include span-columns(12);
+	}
+}

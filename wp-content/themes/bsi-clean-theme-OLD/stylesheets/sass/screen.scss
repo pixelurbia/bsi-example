@@ -1,0 +1,464 @@
+//IMPORT
+@import 'bourbon/bourbon';
+@import 'neat/neat';
+@import 'helpers/helpers';
+@import 'base/base';
+@import 'custom/custom';
+
+// Type
+h1, h2, h3, h4 {margin:5px 0; margin-bottom:5px; padding:0; text-decoration: none; }
+h1, h1 a { @include font-size(8);  text-transform:uppercase; color:$grey; font-weight:600; @include effra;
+			@include media ($phone) {@include font-size(5.5); }}
+h2, h2 a { @include font-size(4.5); color:$grey; font-weight:700; text-decoration:none; font-family:$effra;  }
+h3, h3 a { @include font-size(2.6); color:$grey;  text-decoration:none; font-family:$effra;}
+h4, h4 a { @include font-size(2.0 ); color:$grey; font-weight:100; font-style:italic; }
+h6, h6 a { @include font-size(1.2); color:$grey; font-weight:100; }
+h5 { @include font-size(1.6); color:$grey; font-family:$ops; font-weight:500; }
+p { text-align:justify; padding:10px 0px 10px 3px; @include font-size(1.6);  font-weight:100; line-height:25px;  font-family:$ops; color:$grey;
+@include media ($phone) { text-align:left;}}
+a { color: $orange; cursor:pointer!important; font-weight:100; text-decoration:none; 
+    &:hover { color: $grey; text-decoration: none; opacity:0.9;}
+    &:focus { outline: 0; }
+  }
+h5.login-notice {  color:$grey; margin: 20px auto; display: block; width: 369px;}
+
+header, section, footer, aside, nav, main, article, figure {
+    display: block; 
+}
+
+
+// Utility // Global Styles
+
+.clearfix { @include clearfix; }
+.clear { clear: both; }
+.left { float: left; }
+.right { float: right; }
+hr { clear: both; width: 100%; height: 1px; background: #bbb; border: 0; }
+img {  height:auto; margin:0; padding:0;}
+.hide {display:none!important;}
+.show {display:block!important;}
+.bo {overflow: hidden; display:block;}
+.page-slug {display:none;}
+.unl {border-bottom:solid 1px $black; padding-bottom:4px; display: inline-block;}
+.readmore { color:$black; float:right; display:inline-block; margin:15px;}
+.master-overlay {display:none;}
+.master-overlay.active {background:$white; z-index: 999; position: fixed; width: 100%; height: 100%; display: block;}
+.overlay-close {@include font-size(2.0); float:right; margin:20px; color:$grey;     position: absolute; right: 20px;}
+.noclick {width: 100%; height: 381px; position: absolute; z-index: 9999;}
+.mauto {margin:0 auto;}
+.btn {margin-top:20px; display:block; @include font-size(1.6); line-height:43px; border:0px; font-weight:300; width:150px; height:45px; text-transform:uppercase; color:$white; text-align:center; border:0px;  background:$orange; transition: all 0.2s ease; 
+    &:hover { color:$orange; background:$white; border-bottom:1px solid $orange; width: 200px;  transition: all 0.2s ease; }}
+blockquote {@include span-columns(12); float:none; margin:10px auto!important; }
+
+
+
+//prloader
+.pre-loader {
+	background: #ffffff;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: fixed;
+    z-index: 99999999999999999;
+    opacity: 0.9;
+    display: block;
+    i {background:url(../images/bsi-logo.png) no-repeat; background-size:100px 100px; width:100px; height:100px; margin: auto; position: absolute; top: 0; left: 0; bottom: 0; right: 0;}
+}
+
+#fp-nav {
+	@include media ($phone) {
+		display:none!important;
+	}}
+
+#fp-nav ul li a.active span {background:$white!important; border:solid 1px $orange; transition: all 0.5s ease;}
+#fp-nav ul li a span { background:$orange!important; transition: all 0.5s ease;}
+
+// @-moz-document url-prefix() { }
+
+body {
+	background:$offwhite url(../images/bg.jpg) top left / cover ; 
+	background-size:100%;
+	@include font-size(1.6); 
+}
+// .ibg-bg {position: absolute;}
+// .bg { background:$offwhite; position: absolute; width: 100%; z-index: 0; }
+
+.mobile-nav { display:none; width: 420px; background: $orange; height: 100%; top: 0; position: fixed; z-index: 999999999; transition: all 0.2s ease; left:-420px;
+	li {
+		float:none; 
+		margin-left:30px; 
+		padding-top: 10px;
+	a {
+		text-transform:uppercase; 
+		font-weight:500; 
+		@include font-size(2.5); 
+		cursor:pointer;
+		color:$white;
+		}
+	}
+	@include media ($tablet) {
+		display:block;
+	}
+}	
+.mobile-close { color: #fff; position: relative; margin: 10px 0px 0px 0px; width: 30px; height: 26px; display: block; z-index: 99999; left: 10px; }
+.mobile-open {  background:url(../images/mobopen.png);  width: 30px; height: 26px; display: none; float: right; margin: 10px 0px 0px 0px;
+    @include media ($tablet) {
+		display:block;
+	}
+}		
+.content-contain { position:relative; left:0; transition: all 0.2s ease;}
+
+.header { @include full; z-index:99; position:relative;
+	.header-container {	@include contentarea; margin:0 auto!important; float:none; padding:20px 0px 0px 0px; 
+		@include media ($phone) { padding:10px 0px 10px 0px; }}
+
+.logo {width:230px; height:auto;}
+.nav {width:auto; float:right; 
+	li {
+		float:left; 
+		margin-left:30px; 
+		padding-top: 10px;
+		a {
+			text-transform:uppercase; 
+			font-weight:500; 
+			@include font-size(1.3); 
+			cursor:pointer;
+			color: $grey;
+  			&:hover { color: $orange; }
+			}
+	}
+	@include media ($tablet) {
+		display:none;
+	}
+}
+.nav li:hover > .sub-menu {display:block;}
+.sub-menu {display:none; background:$orange; width: 100%; max-width:200px;  height: auto; position: absolute; padding: 10px; z-index:99999;
+ li { float:none; margin:0; padding:0; width: 80%; display:block; 
+ 	a { color:$white; width:100%; padding:5px; width: 100%; display:block; 
+ 		&:hover {color:$orange; background:$white; padding:5px;}}
+ }
+ }
+}
+
+
+
+#fullpage { @include span-columns(12); z-index:9; float:none!important; overflow:hidden; padding-bottom:40px;
+	.section { padding-left:50px; padding-right:50px; z-index:9;
+			@include media ($phone) {
+			padding-right:0px;
+			padding-left:0px;
+		}}
+	.first { 
+		@include media ($tablet) { padding-top:0px!important;}
+		@include media ($phone) { padding-top:13%!important;}
+	.fp-tableCell {@include four; max-width:360px; float:none!important; margin:0 auto!important; margin-right:auto!important;}
+		.text-contain {display:none; margin-top: 20px; z-index:999;
+			@include media ($phone) { margin-top: -140px; padding:10px; background: url(../images/trans.png);
+    		}
+    	}
+		.btn {margin:15px auto!important; }
+		.img-obj { width:80%; position:relative;  height:220px; 
+				@include media ($phone) {
+					margin-top:-30px;
+	    		}
+			.dogs {position:absolute; display:none; top:0; left:0; transition: all 0.2s ease;}}
+				.dogs_one {    margin: 10px 10px 0px 40px; width: 80%;  
+					@include media ($phone) { margin:-15px 10px 0px 20px;}}
+				.dogs_two {    margin: 100px 0px 0px 135px;   width: 53%; 
+					@include media ($phone) { margin:70px 0px 0px 140px;}}
+				.dogs_three {  margin: 100px 0px 0px 10px; width: 50%;  
+					@include media ($phone) { margin:70px 0px 0px -20px;}}
+	}
+	
+	.second { padding-top:15%!important; 
+		@include media ($tablet) { padding-top:0px!important;}
+		@include media ($phone) { padding-top:0px!important;}
+	.fp-tableCell {@include contentarea; margin:0 auto!important; float:none; padding:30px 0px 0px 0px; 
+	@include media ($phone) { padding-top:0px!important;}}
+	.text-contain { @include textcontain; float:left; display:none; z-index:999;
+		@include media ($tablet) { padding:10px; margin-top:-100px; background: url(../images/trans.png); }
+		@include media ($phone) { margin-top:0px; }
+	}
+		.img-obj { @include half; float:right; position:relative; height:300px; 
+			@include media ($phone) { position:absolute; margin-left:-250px; }
+			.dogs {position:absolute; transition: all 0.2s ease;
+				@include media ($phone) { width:100%;} 
+				}
+		}
+				.dogs_one {  margin: -4px 10px 0px 300px; width: 50%; 
+					@include media ($tablet) { margin:-4px 10px 0px 580px;}
+					@include media ($phone) { margin:-4px 10px 0px 480px;}}
+				.dogs_one.bigger {width:70%; margin:-50px 0px 0px 150px; 
+					@include media ($phone) { margin:221px 0px 0px 360px; }}
+				.dogs_two {  margin: 140px 0px 0px 399px;  width: 40%;
+					@include media ($tablet) { margin:140px 0px 0px 509px; }
+					@include media ($phone) { margin:140px 0px 0px 409px; width:70%!important;}}
+				.dogs_three { margin:200px 0px 0px 300px;  width: 30%; 
+					@include media ($tablet) { margin:161px 0px 0px 600px; }
+					@include media ($phone) { margin:161px 0px 0px 500px; width:70%!important;}}
+				.dogs_obowl {  margin: 230px 0px 0px 0px; 
+					@include media ($tablet) {margin:181px 0px 0px -100px; }
+					@include media ($phone) {margin:181px 0px 0px 80px; width:70%!important;}}
+				.dogs_bowl {  margin: 250px 0px 0px 100px;
+					@include media ($tablet) { margin:230px 0px 0px -111px; }
+					@include media ($phone) { margin:230px 0px 0px 80px; width:50%!important;}}
+	}
+
+	@media screen and ( max-height: 700px ){
+    	.second { padding-top:1%!important; }
+	}
+
+	.second.right { 
+		.fp-tableCell {@include contentarea; margin:0 auto!important; float:none; padding:30px 0px 0px 0px; }
+		.text-contain {@include textcontain; float:right; display:none; z-index:999;
+			@include media ($tablet) {
+					padding:10px;
+					margin-top:-100px;
+    				background: url(../images/trans.png);
+    		}
+    		@include media ($phone) { 
+    			margin-top:0px;
+    		}}
+		.img-obj { @include half; float:left; position:relative; height:300px; 
+			@include media ($phone) {
+				position:absolute;
+    		}
+    	}
+		.dogs_two.invert_dog {  margin: 20px 0px 0px 50px;  width: 100%;
+			@include media ($phone) { margin:300px 0px 0px 250px; width:100%!important;}}
+		.dogs_three.invert_dog {  margin-top: -69px;  margin-left: 180px; margin-bottom: 0px; margin-right: 00px;  width: 80%;}
+		.dogs_one.delight { margin: 7% 0px 1% 45%; width: 50%; 
+		    // @include media ($tablet) { margin: 76px 0px 10px 450px; width:50%; }
+		    @include media ($phone) { margin: 136px 0px 0px 430px; width:90%; }
+		}
+		.dogs_two.delight { margin: 14% 0px 0px -14%;  width: 40%;
+   		    // @include media ($tablet) { margin: 141px 0px 0px -141px; }
+   		    @include media ($phone) { margin: 350px 0px 0px 60px; }
+		}
+		.dogs_three.delight { margin: 30% 0px 0px 51%;  width: 30%;
+   		    // @include media ($tablet) { margin: 279px 0px 0px 510px; }
+   		    @include media ($phone) { margin: 280px 0px 0px 480px; }
+		}
+		.dogs_obowl.delight { margin: 39% 0px 0px 30%;   width: 40%;
+   		    // @include media ($tablet) {  margin: 340px 0px 0px 300px; }
+   		    @include media ($phone) {  margin: 370px 0px 0px 330px; }
+		}
+	}
+}
+
+// .home.page .bg {position:absolute; margin-top:0;}
+// .page .bg, .archive .bg {  margin-top:-100px; position:relative; background-image:url(http://localhost:8888/wp-content/themes/bsi-clean-theme/images/bg.jpg); background-repeat:repeat-y; background-size:100% ; }
+.single, .archive { 
+	position:relative; 
+	// margin-top:100px; 
+	.ftimg { height:250px; padding-top:5%; margin-bottom:50px;  background-size:cover!important; position:relative;
+		h2, h4 { text-align:center; text-transform:uppercase; color:$white; z-index:99; }
+	}
+	h3 {font-style:italic;}
+	.row { @include full;  padding:50px 0px 0px 0px; height:auto; margin:10px 0px 0px 0px; }
+	.row.highlight { padding:30px 0px 30px 0px; background-blend-mode: multiply; background-size:100%; background:#f4752e url(http://localhost:8888/wp-content/themes/bsi-clean-theme/images/bg.jpg);
+		p, h1,h2,h3,h4 {color:$white;}}
+	.contentwrap { 
+		@include contentarea; 
+	}
+	.author { width: auto; margin:20px 0px 10px 0px; float:right; clear:both; line-height:28px;
+		@include media ($phone) { @include font-size(1.5); }}
+		h2 { clear:both; }
+		p { clear:both; }
+		.gravatar { float:right; margin-left:10px;
+			@include media ($phone) { float:left; margin:0px; }} 
+		.gravatar img { width: 30px!important; border-radius: 20px; margin-right:10px;} 
+
+	.tweetthis { width: 100%; overflow: hidden; margin:40px 0px 40px 0px;
+		a {background:url(../images/tweet.png) no-repeat; width:140px; height:30px; display:block;  float:left;}
+		hr { width: 40%; float: left; clear: none; margin: 10px 21px 0px 21px; }
+	}
+	.quote {width:100%; height:auto; margin:20px 0px 20px 0px; padding:30px; color:$white; @include font-size(2.4); display: block; text-align: center;}
+	blockquote {width:100%; height:auto; margin:20px 0px 20px 0px; padding:30px; color:$white; @include font-size(2.4); display: block; text-align: center;}
+}
+
+.single .row {
+		ul { margin: 10px 0px 10px 40px; list-style-type: circle;
+		li {list-style-type: circle;}
+	}
+}
+
+
+//posts - blogs
+.single.post {
+	img {
+		@include media ($tablet) {}
+		@include media ($phone) { margin: 0px; float: none; width: 100%;}
+	}
+	.author {  width:315px; margin: 0px auto;  display: block; clear: both; line-height: 28px;
+		.gravatar {margin-right:10px; }}
+	.tweetthis hr { 
+		@include media ($phone) { width:15%; }}
+	.ftimg {
+		h2, h4 { text-align:center; text-transform:uppercase; color:$white; z-index:999; position: absolute; left: 0; right: 0;}
+		h4 {    top: 140px;}
+		h2 {
+			@include media ($phone) { @include font-size(3.4); padding:10px;}
+	   	}
+	 }
+	.overlay { background: url(../images/blacktrans.png); top:0px; width: 100%; height: 250px; display: block; z-index: 88; position: absolute; }
+	.contentwrap { @include contentarea; padding:20px;}
+}
+
+//portfolio
+
+.single.port {
+	.text-contain { @include four; }
+	hr {width:19%;}
+	.collateral { @include two-third;
+		img { @include full; clear:both;}
+		.port-item {overflow:hidden; margin-bottom:15px;}
+		.col-w1 { @include four; max-height:1000px; height:auto;}
+		.col-w2 { @include porthalf; max-height:300px; margin-right:0px;}
+		.col-w3 { @include porthalf; max-height:378px; margin-right:0px;}
+		.col-w4 { @include full; max-height:500px;}
+	}
+}
+
+// Contact Page
+ #map { width:100%; height:300px;}
+ .gform_wrapper ul li.gfield {clear:none!important;}
+.gform_wrapper input { width:47%; float:left!important; margin-right:2.5%!important;  @include font-size(1.3); margin-top: 15px; width: 95%; padding-right: 2px; border: 0px; height: 40px; padding-left: 10px; color: $orange; border-radius: 3px; -webkit-appearance:none!important; -moz-appearance:none!important; appearance:none!important;}
+.gform_wrapper textarea {  @include font-size(1.3);  padding: 12px 0px 0px 5px!important; border: 0px; color: $orange; border-radius: 3px; -webkit-appearance:none!important; -moz-appearance:none!important; appearance:none!important;}
+.gform_button.button {margin-top:20px; display:block; @include font-size(1.6); line-height:0px; border:0px; font-weight:300; width:150px; height:45px; text-transform:uppercase; color:$white; text-align:center; border:0px;  background:$orange; transition: all 0.2s ease; 
+    &:hover { color:$orange; background:$white; border-bottom:1px solid $orange; width: 200px;  transition: all 0.2s ease; }}
+
+#input_1_2, #input_1_3 {margin-bottom:25px;}
+
+textarea::-webkit-input-placeholder,  input::-webkit-input-placeholder  {color: $orange ; @include font-size(1.3); }
+textarea:-moz-placeholder, input:-moz-placeholder {color: $orange ; @include font-size(1.3); }
+textarea::-moz-placeholder, input::-moz-placeholder {color: $orange ; @include font-size(1.3); }
+textarea:-ms-input-placeholder,  input:-ms-input-placeholder  {color: $orange ; @include font-size(1.3); }
+
+ .gform_wrapper {
+ 	form label {display:none!important;}
+ 	input {@include half; }
+ }
+
+
+
+.staff {padding-left:4%;
+@include media ($phone) {padding:0px;}}
+.staff-member { @include two;  margin-bottom:20px; height:330px;
+	@include media ($tablet) { margin-right:42px; }
+	.bio {display:none;}
+ 	h3 {color:$grey; font-style:normal;}
+ 	h5 {color:$orange;} 
+ 	h3 ,h5 {text-align:center; font-weight:500; text-transform:uppercase;}
+ 	img { border-radius:50%; 
+		  filter: gray; /* IE6-9 */
+  		  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+  		  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+  		  transition: all 0.2s ease;
+		&:hover {
+  			filter: none;
+  			-webkit-filter: grayscale(0);
+  			transition: all 0.2s ease;
+  		}
+  		@include media ($phone) { display: block; margin: 0 auto; }
+ 	}
+ }
+
+ .staff-member.lightbox {display:none;}
+ .staff-member.lightbox.active { @include contentarea; float:none; display:block; position: fixed; height: 100%; overflow: scroll; top: 5%; left: 0; right: 0; margin: 20px auto!important; padding: 40px; z-index: 9999999; transition: all 0.2s ease;
+    img { margin:0 auto; display:block;}
+    .bio {display:block;}
+ }
+
+.icons { @include contentarea; padding:50px 0px 50px 0px; }
+ .icon-area { @include icons; margin-right:1%;
+ 	h4 {text-align:center; color:$white; font-style:normal; @include font-size(1.5); font-weight:600; letter-spacing:1px; text-transform:uppercase; }
+ 	.img-contain {width:100%; height:110px;}
+ 	img { width:100%; max-width:110px; margin:0 auto; display:block;}
+ }
+
+
+.blog-roll {
+	.contentwrap { height:auto; display:block;}
+	article { @include full; margin:50px 0px 50px 0px;
+		.img-contain {width:45%; max-height:370px; overflow:hidden; float:right; padding-top:17px;
+			@include media ($tablet) {width:100%; max-height:300px; margin-bottom:10px;}}
+		img {width:100%; float:right; } 
+		section {@include half; padding-right:40px; text-align:right; 
+		.btn {float:right;}}
+	}
+	article.left { @include full; margin:50px 0px 50px 0px;
+		.author { width: auto; margin:20px 0px 10px 0px; float:left; clear:both; line-height:28px;}
+
+		.img-contain {float:left;}
+		img {width:100%; float:left; } 
+		section {@include half; width:54%; padding-left:40px; float:left; text-align:left;
+		.btn {float:left;}}
+	}
+
+	.pagenav {width: 100%; max-width: 270px; text-align: center; margin: 50px auto; display: block; overflow:hidden;
+		.alignright {float:right;}
+		.alignleft {float:left;}
+	}
+}
+
+//culture
+
+.grams {width:33.33%; height:320px; float:left; margin:0px; padding:0px; overflow:hidden; position:relative; 
+
+	@include media ($tablet) {width:50%; height:340px;}
+	@include media ($phone) { width:100%; float:none;
+		.gram { margin:0px;}}
+	
+		
+	.desc-contain { position:absolute; width:90%; height:86%; background:url(../images/otrans.png); margin:20px; padding:20px; display:block; @include font-size(1.4); display:block;   -webkit-transform-origin: center bottom; transform: perspective(0px) rotateX(90deg);  transition: all 0.5s ease; 
+	.desc { position:absolute; bottom:0; width:86%; height:auto; padding-bottom: 20px; color:$white;}}
+	
+	
+
+	.hash_tag {color:$white; font-weight:700; }
+	.gram {width:140%; margin: -130px 0px 0px -60px; max-width:300%;}}
+.grams:hover > .desc-contain { -webkit-transform-origin: center bottom;  transform: perspective(600px) rotateX(-1deg);  display:block; transition: all 0.5s ease; } 
+
+
+
+// to top button icon-area
+.home .to-top { display:none; }
+.to-top { display:block; margin-bottom:40px;
+ 		img {}
+ 		span {display:block; width:110px; height:80px; margin:10px auto; background:url(../images/othermurray.png) no-repeat; background-size: 120px 100px;}
+ 		a {@include font-size(1.2); font-weight:100;     margin: 10px auto; text-align: center; width: 140px; display: block; }
+ 	}
+
+
+// footer
+.home .footer { position:fixed; bottom:0;}
+
+.sm { float:left; width:130px; margin-top: -2px;
+	li { 
+		a { background:url(../images/sm.png) no-repeat; display: block; width: 26px; height: 21px; float: left; 
+			&:hover { opacity:0.7;}}
+	}
+	.facebook a {background-position: 10px 3px;}
+	.twitter a {background-position: -24px 4px;}
+	.linkedin a {background-position: -58px 3px;}
+	.gplus a {background-position: -87px 3px;}
+	.instagram a {background-position: -122px 3px;}
+}
+.footer-nav {float:right;}
+.footer { float:left; height:35px; background:$orange; color:$white; width:100%; font-weight:100; @include font-size(1.2); padding:8px; z-index:9999;
+
+	.copyright {width:auto; float:left; font-weight:100; @include font-size(1.2);
+		a {color:$white; }}
+	.nav {width:auto; float:right;  
+		@include media ($phone) { display:none;}
+		li {float:left; margin-left:30px; color:$white; font-weight:100; @include font-size(1.2);
+			a {text-transform:uppercase; font-weight:100; @include font-size(1.2); cursor:pointer; color:$white;} 
+		}
+	}	
+
+	
+
+}
+
+

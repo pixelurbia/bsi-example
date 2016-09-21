@@ -1,0 +1,159 @@
+//COLORS
+$white: #fff;
+$offwhite:#f8f8f9;
+$grey:#525455;
+$darkgrey: #4a4a4a;
+$lightgrey:#a9a9a9;
+$black: #000;
+$fieldgray: #464646;
+$pink:#f06274;
+$purple:#a200ff;
+$red:#dd0063;
+$yellow:#e8d21b;
+$green:#42bc00;
+$orange:#f37f30;
+$darkblue:#0e51c7;
+$lightblue:#498fe1;
+$navyblue:#072466;
+$type: #5c5b5c;
+
+
+//FONTS
+$ops: 'Open Sans', sans-serif;
+$effra: 'Open Sans', sans-serif;
+
+@mixin display {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+@mixin paragraph {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+@mixin effra {
+  font-family: "effra",sans-serif;
+}
+
+html {   font-size: 62.5%; /* Sets up the Base 10 stuff */  }
+
+// @include media($phone) {}
+// @include media($tablet) {}
+
+
+
+// Mouse
+
+.mouse {
+    height: 41px;
+    width: 50px;
+	border-radius: 10px;
+	transform: none;
+	// border: 2px solid $grey;
+	bottom: 60px;
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index:999999;
+	margin: 0 auto;
+  @include media ($phone) { display:none;}
+}
+
+.wheel {
+    height: 25px;
+    width: 20px;
+    float: left;
+    display: block;
+    margin: -12px 0px 0px 0px;
+    background: #525455;
+    position: relative;
+    background: url(../images/pawvert.png) no-repeat;
+    background-size: 20px 20px;
+}
+
+.wheel {
+  -webkit-animation: mouse-wheel 1.4s ease infinite;
+  -moz-animation: mouse-wheel 1.4s ease infinite;
+}
+
+.wheeltwo {
+    height: 25px;
+    width: 22px;
+    display: block;
+    float: left;
+    margin: 10px 0px 0px;
+    background: #525455;
+    position: relative;
+    background: url(../images/pawvert.png) no-repeat;
+    background-size: 20px 20px;
+}
+
+.wheeltwo {
+  -webkit-animation: mouse-wheel 1.3s ease infinite;
+  -moz-animation: mouse-wheel 1.3s ease infinite;
+}
+
+.wheelthree {
+    height: 25px;
+    width: 22px;
+    display: block;
+    float: left;
+    margin: -2px 0px 0px 0px;
+    background: #525455;
+    position: relative;
+    background: url(../images/pawvert.png) no-repeat;
+    background-size: 20px 20px;
+}
+
+.wheelthree {
+  -webkit-animation: mouse-wheel 1.2s ease infinite;
+  -moz-animation: mouse-wheel 1.2s ease infinite;
+}
+
+@-webkit-keyframes mouse-wheel
+{
+   0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(6px);
+    -ms-transform: translateY(6px);
+    transform: translateY(6px);
+  }
+}
+
+@-moz-keyframes mouse-wheel
+{
+  0% { top: 1px; }
+  50% { top: 2px; }
+  100% { top: 3px;}
+}
+
+@-webkit-keyframes mouse-scroll {
+
+  0%   { opacity: 0;}
+  50%  { opacity: .5;}
+  100% { opacity: 1;}
+}
+@-moz-keyframes mouse-scroll {
+
+  0%   { opacity: 0; }
+  50%  { opacity: .5; }
+  100% { opacity: 1; }
+}
+@-o-keyframes mouse-scroll {
+
+  0%   { opacity: 0; }
+  50%  { opacity: .5; }
+  100% { opacity: 1; }
+}
+@keyframes mouse-scroll {
+
+  0%   { opacity: 0; }
+  50%  { opacity: .5; }
+  100% { opacity: 1; }
+}
+
+
